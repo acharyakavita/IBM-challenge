@@ -3,11 +3,9 @@ import classes from './Header.module.css';
 
 const header = props=> {
     let classSearch=['fa','fa-search'];
-    let classFlickr=['fab','fa-flickr']
     return(
         <header>
-            
-            <h3><i className={classFlickr.join(' ')}></i>flickr</h3>
+            <h3>flickr</h3>
             <form className={classes.searchContainer}>
                 <button type="submit" onClick={props.click}>
                     <i className={classSearch.join(' ')}></i>

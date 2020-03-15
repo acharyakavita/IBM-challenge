@@ -1,6 +1,7 @@
 .photo {
     flex-grow:1;
-    padding: .2rem;
+    padding: .1rem;
+    position: relative;
   }
 
   img {
@@ -9,8 +10,11 @@
     height: 16rem;
     object-fit: cover;   
 }
-
-img:hover {
-   color:#fff;
-   font-size:15px;
+.photoOverlay {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    color:#fff;
+    font-weight: 100;
+    font-size:13px;
 }

@@ -1,0 +1,36 @@
+.photoDetail{
+    width:80%;
+    margin:2% 10%;
+    border:solid 1px white;
+    border-radius:3px;
+}
+
+.photoDetail img {
+    width:80%;
+    height:35rem;
+
+}
+
+.description{
+    margin:0;
+    background-color:#fff;
+    text-align: justify;
+    padding:2%;
+    white-space: pre-line;
+    ;
+}
+.title{
+    width:90%;
+    display: inline-block;
+}
+.title h4{
+    float:left;
+}
+.title span{
+    font-weight: 200;
+    font-style: italic;
+}
+.title p{
+    font-weight: 500;
+    float:right;
+}

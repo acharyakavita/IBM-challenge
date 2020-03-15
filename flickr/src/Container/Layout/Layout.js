@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Header from '../../Components/Header/Header';
-import Footer from '../../Components/Footer/Footer';
 
 class Layout extends Component {
 
@@ -37,7 +36,6 @@ class Layout extends Component {
             click={this.onClickHandler}
         />
         <main>{this.props.children}</main>
-        <Footer/>
       </div>
     );
   }
