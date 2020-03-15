@@ -1,0 +1,23 @@
+.imageOverlay {
+    position: absolute;
+    top:35%;
+    left:35%;
+    color:#fff;
+    font-size: 25px;
+}
+
+.imageOverlay button{
+    width:30%;
+    height:10%;
+    font-size:20px;
+    padding:2%;
+    background-color: #fff;
+    border:none;
+    border-radius: 2px;
+    outline: none;
+    font-weight: 600;
+}
+
+.imageOverlay button:hover{
+   color:grey;
+}

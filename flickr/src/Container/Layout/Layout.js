@@ -44,6 +44,11 @@ class Layout extends Component {
         
   }
 
+  startSearchClickHandler =(event)=>{
+    event.preventDefault();
+    
+  }
+
   onChangeHandler=(event)=>{
     let newSearchVal = event.target.value
     this.setState({searchQueryValue:newSearchVal})
@@ -58,7 +63,7 @@ class Layout extends Component {
             value={this.state.searchQueryValue}
             click={this.onClickHandler}
         />
-        <Main/>
+        <Main click={this.startSearchClickHandler}/>
         <Footer/>
       </div>
     );
