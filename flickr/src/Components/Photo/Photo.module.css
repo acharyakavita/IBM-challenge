@@ -1,0 +1,16 @@
+.photo {
+    flex-grow:1;
+    padding: .2rem;
+  }
+
+  img {
+    display: block;
+    min-width: 100%;
+    height: 16rem;
+    object-fit: cover;   
+}
+
+img:hover {
+   color:#fff;
+   font-size:15px;
+}
