@@ -34,3 +34,11 @@
     font-weight: 500;
     float:right;
 }
+
+.date {
+    font-weight: 600;
+}
+
+.date span{
+    font-weight: 200;
+}

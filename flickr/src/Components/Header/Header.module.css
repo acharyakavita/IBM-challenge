@@ -7,19 +7,22 @@ header {
     width:98%;
 } 
 
+header a {
+  text-decoration: none;
+  color:#fff;
+}
+
 h3 {
   margin: 0;
   float :left;
   font-size: 30px;
-  padding-right: 5%;
-  width:15%;
+  padding-right: 1%;
+  width:10%;
 }
 
-form {
-  display:inline-block;
-}
 .searchContainer {
-    width:80%;
+    width:89%;
+    display:inline-block;
 }
   
 .searchContainer input[type=text] {
@@ -37,7 +40,7 @@ form {
   box-shadow: none;
   font-size: 17px;
   float: left;
-  width: 80%;
+  width: 40%;
   border-radius: 0 5px 5px 0;
 }
   
@@ -53,15 +56,32 @@ form {
   outline: none;
   border-radius: 5px 0 0 5px;
 }
+
+.sort {
+  background:white;
+  outline:none;
+  float:left;
+  margin:0 3%;
+  padding:6px;
+  border-radius: 3px;
+  font-weight: 200;
+  color:grey;
+}
+
+.sort option{
+  color:black;
+  font-size: 13px;
+  border-radius: 5px;
+  padding:5px 0;
+ }
   
-  @media screen and (max-width: 600px) {
+  @media screen and (min-width: 600px)and(max-width:900px) {
     h3 {
       margin-top : 0;
       float :left;
       font-size: 20px;
       padding-top:2%;
       padding-right: 10px;
-      width:15%;
     }
     header {
       height :50px;
@@ -71,4 +91,21 @@ form {
       width:80%;
     }
 
+  }
+
+  @media screen and(max-width: 500px) {
+    h3 {
+      margin-top : 0;
+      float :left;
+      font-size: 20px;
+      padding-top:2%;
+      padding-right: 20px;
+    }
+    header {
+      height :50px;
+    }
+    .searchContainer {
+      padding-top:2%;
+      width:89%;
+    }
   }

@@ -1,8 +1,21 @@
 .photos{
     max-width: 1024px;
-    margin: 0 auto;
+    margin: 2% auto;
     display: flex;
     flex-wrap: wrap;
     background-color: #fff;
     background-image: none;
+}
+
+
+@media screen and (max-width: 600px) {
+    .photos{
+        max-width:400px;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width:900px) {
+    .photos{
+        max-width:601px;
+    }
 }
