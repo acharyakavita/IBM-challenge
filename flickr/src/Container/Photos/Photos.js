@@ -98,10 +98,8 @@ class Photos extends Component {
     )
     .then(res => {
         if (res.data.photos) {
-            console.log(res.data.photos)
             let oldPhotos=this.state.photos
             let newPhotos= oldPhotos.concat(res.data.photos.photo)
-            console.log(oldPhotos)
             this.setState({
                            photos      : newPhotos,
                            currentpage : res.data.photos.page,
