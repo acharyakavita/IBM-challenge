@@ -24,6 +24,7 @@ class Photos extends Component {
   };
   
   componentDidMount=()=>{
+      //load photos from publicphotos api
         axios.get(
             `https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=${Config.api_key}&user_id=${Config.user_id}&per_page=${Config.per_page}&extras=description,owner_name,date_upload,date_taken,views&format=json&nojsoncallback=1`
         )
@@ -33,10 +34,10 @@ class Photos extends Component {
                                photos      : res.data.photos.photo,
                                currentpage : res.data.photos.page,
                                totalPages  : res.data.photos.pages,
-                               delayFlag: false,
-                               publicPhotos:true,
-                               searchPhotos:false,
-                               error:false
+                               delayFlag   : false,
+                               publicPhotos: true,
+                               searchPhotos: false,
+                               error       : false
                             });
             } 
             if(res.data.photos.photo.length===0){
@@ -49,6 +50,7 @@ class Photos extends Component {
     
   }
 
+  //search photos from Nasa's account through searchbar
   onClickSearchHandler=(event)=>{
       event.preventDefault();
       axios.get(
@@ -60,10 +62,10 @@ class Photos extends Component {
             photos      : res.data.photos.photo,
             currentpage : res.data.photos.page,
             totalPages  : res.data.photos.pages,
-            delayFlag: false,
+            delayFlag   : false,
             searchPhotos:true,
             publicPhotos:false,
-            error:false
+            error       :false
             });
         } 
         if(res.data.photos.photo.length===0){
@@ -73,20 +75,23 @@ class Photos extends Component {
     .catch(err => {
         this.setState({ error: true, errorMsg: err.toString() });
     });
-
-
   }
 
+
+  //Route to Photo details page on photo click .
+  //Loads large photo if available
   photoClickHandler=(photo)=>{
-    axios.get(`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_b.jpg`)
+        axios.get(`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_b.jpg`)
         .then(res=>{
             if(res){
                 photo.url=`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_b.jpg`
                 this.props.history.push(
-                    {pathname:`/${photo.id}`,
-                     state:{detail:photo}
+                    {
+                     pathname:`/${photo.id}`,
+                     state:{
+                         detail:photo
+                        }
                     })
-
             }
         })
         .catch(e=>{
@@ -97,7 +102,7 @@ class Photos extends Component {
         })
   }
 
-
+//store the search query from search bar
   onChangeHandler=(event)=>{
     let newSearchVal = event.target.value
     this.setState({searchQueryValue:newSearchVal},() => {
@@ -105,6 +110,7 @@ class Photos extends Component {
     })
   }
 
+  // sort by date-upload,views and title
   sortByHandler=(event)=>{
     let sortedPhotos=this.state.photos;
       switch(event.target.value){
@@ -122,8 +128,8 @@ class Photos extends Component {
       this.setState({photos:sortedPhotos})
   }
 
+  // loading additional pages (public photos and search photos) using infinite scroll.
   loadMorePages=()=>{
-      console.log(this.state.currentpage)
     let url='';
     if(this.state.publicPhotos){
         url=`https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=${Config.api_key}&user_id=${Config.user_id}&per_page=${Config.per_page}&page=${this.state.currentpage+1}&extras=description,owner_name,date_upload,date_taken,views&format=json&nojsoncallback=1`
@@ -141,8 +147,8 @@ class Photos extends Component {
                            photos      : newPhotos,
                            currentpage : res.data.photos.page,
                            totalPages  : res.data.photos.pages,
-                           delayFlag: false,
-                           error:false
+                           delayFlag   : false,
+                           error       :false
                         });
         } 
         if(res.data.photos.photo.length===0){
@@ -154,9 +160,13 @@ class Photos extends Component {
     });
   }
 
+
+  //render method
   render() {
       let url='';
-      let photoData=(<h5>Loading ....</h5>)
+      let photoData=(<h5>Loading ....</h5>);
+
+      //contruct photo url's and photo component
       if(!this.state.delayFlag){
         photoData = this.state.photos.map((item,index)=>{
             url=`https://farm${item.farm}.staticflickr.com/${item.server}/${item.id}_${item.secret}.jpg`;
@@ -167,22 +177,18 @@ class Photos extends Component {
                     />
         })
       }
-
       if (this.state.error) {
         photoData = <p className={classes.error}>{this.state.errorMsg}</p>;
       }
-      
-      
-    return (
+      return (
         <div>
-        <Header 
-            onChange={this.onChangeHandler} 
-            value={this.state.searchQueryValue}
-            click={this.onClickSearchHandler}
-            displaySearch={true}
-            sortByHandler={this.sortByHandler}
-        />
-        
+            <Header 
+                onChange={this.onChangeHandler} 
+                value={this.state.searchQueryValue}
+                click={this.onClickSearchHandler}
+                displaySearch={true}
+                sortByHandler={this.sortByHandler}
+            />
             <InfiniteScroll
                 initialLoad={ false }
                 pageStart={1}
@@ -190,11 +196,10 @@ class Photos extends Component {
                 hasMore={this.state.currentpage<this.state.totalPages}
                 loader={<div className="loader" key={1}>Loading ...</div>}>
                 <div className={classes.photos}>
-                        {photoData}
-                        </div>  
+                    {photoData}
+                </div>  
             </InfiniteScroll>
-        
-      </div>
+        </div>
     );
   }
 }

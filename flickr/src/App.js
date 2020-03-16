@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Route} from "react-router-dom";
 import './App.css';
-//import Layout from './Container/Layout/Layout';
 import Photos from '../src/Container/Photos/Photos';
 import PhotoDetails from "./Components/PhotoDetails/PhotoDetails";
 
