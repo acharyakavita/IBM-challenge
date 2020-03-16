@@ -18,8 +18,8 @@ const PhotoDetails = props=> {
             <div className={classes.description}>
                 <div className={classes.title}>
                     <h4>{photo.title} <span> by {photo.ownername}</span></h4>
-                    <p>Views : {photo.views}</p>
                 </div>
+                <p className={classes.views}>Views : <span>{photo.views}</span></p>
                 <p className={classes.date}>Uploaded on: <span>{formattedDate}</span></p>
                 <p>{ReactHtmlParser(photo.description._content)}</p>    
             </div>

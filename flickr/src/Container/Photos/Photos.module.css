@@ -12,6 +12,10 @@
     background-image: none;
 }
 
+.error{
+    padding-left:3%;
+    color:red;
+}
 
 @media screen and (max-width: 600px) {
     .photos{

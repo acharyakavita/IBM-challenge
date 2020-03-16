@@ -1,5 +1,6 @@
-header {
-  background-color:rgba(0,0,0);;
+.header {
+  display: block;
+  background-color:rgba(0,0,0,1);
   color:#fff;
   margin-top:0;
   padding: 1%;
@@ -7,7 +8,7 @@ header {
   width:98%;
 } 
 
-header a {
+.header a {
 text-decoration: none;
 color:#fff;
 }
@@ -76,37 +77,43 @@ border-radius: 5px;
 padding:5px 0;
 }
 
-@media screen and (min-width: 600px)and(max-width:900px) {
-  h3 {
+@media screen and (min-width:501px) and (max-width:900px){
+  .header a{
     margin-top : 0;
     float :left;
-    font-size: 20px;
-    padding-top:2%;
-    padding-right: 10px;
-  }
-  header {
-    height :50px;
-  }
-  .searchContainer {
-    padding-top:2%;
-    width:80%;
-  }
-
-}
-
-@media screen and(max-width: 500px) {
-  h3 {
-    margin-top : 0;
-    float :left;
+    width:15%;
     font-size: 20px;
     padding-top:2%;
     padding-right: 20px;
   }
-  header {
+  .header {
     height :50px;
   }
   .searchContainer {
     padding-top:2%;
-    width:89%;
+    width:70%;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+  h3 {
+    margin-top : 0;
+    float :left;
+    font-size: 20px;
+    padding-top:2%;
+    padding-right: 0;
+  }
+  .header {
+    height :50px;
+  }
+  .searchContainer {
+    padding-top:2%;
+    width:70%;
+  }
+
+  .searchContainer input[type=text] {
+    width: 30%;
+    font-size: 13px;
   }
 }

@@ -31,7 +31,7 @@ const header = props=> {
             </div>)
     }
     return(
-        <header>
+        <header className={classes.header}>
             <a href='./'><h3>flickr</h3></a>
             {options}
         </header>

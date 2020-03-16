@@ -26,13 +26,12 @@
 .title h4{
     float:left;
 }
-.title span{
+.title span, .views span{
     font-weight: 200;
     font-style: italic;
 }
-.title p{
-    font-weight: 500;
-    float:right;
+.views{
+    font-weight: 600;
 }
 
 .date {
@@ -42,3 +41,16 @@
 .date span{
     font-weight: 200;
 }
+
+
+@media screen and (max-width: 500px) {
+    .photoDetail{
+        width:90%;
+        margin:2% 5%;
+    }
+    
+    .photoDetail img {
+        width:100%;
+        height:30rem;
+    }
+  }
