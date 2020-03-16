@@ -13,6 +13,6 @@ I have focused on delivering a usable application with optimizations on performa
 5. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Hosted on Firebase
-I have also hosted teh application in Firebase.
+I have also hosted the application in Firebase.
 Link : https://flick123.firebaseapp.com/
 
